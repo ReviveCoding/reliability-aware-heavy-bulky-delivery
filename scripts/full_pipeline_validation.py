@@ -34,6 +34,35 @@ class Check:
     details: dict[str, Any]
 
 
+def decision_value_contract_problems(
+    decision_value: dict[str, Any],
+    champion: Any,
+) -> list[str]:
+    """Validate decision-value schema without conflating its semantics."""
+
+    problems: list[str] = []
+
+    selected_champion = decision_value.get("selected_champion_policy")
+
+    allowed_policies = {
+        "greedy",
+        "deterministic",
+        "risk_aware",
+    }
+
+    if selected_champion not in allowed_policies:
+        problems.append(f"invalid_selected_champion_policy:{selected_champion}")
+    elif selected_champion != champion:
+        problems.append(f"selected_champion_policy_mismatch:{selected_champion}!={champion}")
+
+    lowest_cost_candidate = decision_value.get("lowest_expected_cost_evaluated_candidate")
+
+    if lowest_cost_candidate not in allowed_policies:
+        problems.append(f"invalid_lowest_expected_cost_evaluated_candidate:{lowest_cost_candidate}")
+
+    return problems
+
+
 def artifact_integrity(
     output: Path, *, require_promote: bool = True, max_runtime_seconds: float = 120.0
 ) -> tuple[Check, dict]:
@@ -92,8 +121,12 @@ def artifact_integrity(
         if champion not in {"greedy", "deterministic", "risk_aware"}:
             problems.append(f"invalid_deployable_champion:{champion}")
         decision_value = metrics.get("decision_value", {})
-        if "best_deployable_policy" not in decision_value:
-            problems.append("missing_best_deployable_policy")
+        problems.extend(
+            decision_value_contract_problems(
+                decision_value,
+                champion,
+            )
+        )
         for challenger in [
             "deterministic_promotion_evidence",
             "risk_aware_promotion_evidence",
