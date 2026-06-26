@@ -1,0 +1,9 @@
+-c constraints-verified.txt
+-r requirements.txt
+pytest
+pytest-cov
+ruff
+httpx2>=2,<3
+build>=1.2,<2
+wheel
+setuptools

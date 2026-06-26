@@ -1,0 +1,83 @@
+# Set m5_zip to your local archive path or generate a temporary config with scripts/run_m5_validation.py.
+seed: 20260616
+mode: test
+output_dir: outputs/m5_small
+m5_zip: data/raw/m5-forecasting-accuracy.zip
+history_days: 126
+validation_days: 14
+stations: [STATION_A, STATION_B]
+service_types: [threshold, installation]
+orders_per_unit: 0.55
+forecast:
+  champion_candidates: [seasonal_naive, rolling_mean, lightgbm_quantile]
+  lags: [1, 7, 14, 28]
+  quantiles: [0.1, 0.5, 0.9]
+  min_train_days: 56
+  min_relative_improvement: 0.01
+  max_worst_series_regression: 0.10
+rass:
+  min_reference_count: 8
+  high_confidence_count: 30
+  shrinkage_strength: 20.0
+routing:
+  strategies: [nearest, sweep, risk_first, balanced, skill_clustered]
+  max_orders_per_route: 7
+  route_capacity_cube: 850
+  max_route_weight: 1600
+  time_window_penalty_per_minute: 3
+  max_route_minutes: 500
+capacity:
+  shift_minutes: 480
+  reserve_vehicles: 1
+  reserve_crews: 1
+  min_resources_per_station: 1
+  route_fill_rate: 0.50
+  resource_pool_per_station: 8
+  install_skill_fraction: 0.75
+optimization:
+  solver: cp_sat
+  time_limit_seconds: 2
+  hard_timeout_seconds: 8
+  num_search_workers: 1
+  unserved_penalty: 5000
+  overtime_penalty_per_minute: 8
+  risk_penalty: 150
+  time_window_penalty_per_minute: 3
+simulation:
+  replications: 30
+  service_overrun_sigma: 0.22
+  vehicle_failure_probability: 0.02
+  crew_absence_probability: 0.03
+  overtime_threshold_minutes: 480
+  costs:
+    minute: 1.0
+    overtime_minute: 8
+    unserved_order: 5000
+    failed_attempt: 240
+    vehicle_failure: 600
+    crew_absence: 800
+advanced_service:
+  enabled: false
+  device: auto
+  epochs: 8
+  batch_size: 128
+  hidden_dim: 64
+  learning_rate: 0.001
+  validation_days: 14
+  min_train_rows: 200
+  min_duration_improvement: 0.02
+  max_failure_brier_regression: 0.05
+release_gates:
+  hard_constraint_violations: 0
+  max_interval_coverage_gap: 0.20
+  max_solver_fallback_rate: 0.10
+  require_reproducibility: true
+  require_sql_validation: true
+  max_unserved_rate: 0.05
+  max_relative_gap: 0.20
+  max_capacity_shortfall: 0
+  max_failure_brier: 0.20
+  max_worst_series_coverage_gap: 0.40
+  max_rass_p90_coverage_gap: 0.20
+  max_singleton_route_time_exceptions: 0
+  require_advanced_service_when_enabled: false

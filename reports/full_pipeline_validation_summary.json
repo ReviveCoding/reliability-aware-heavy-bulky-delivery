@@ -1,0 +1,107 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "artifact_integrity:qfinal_smoke3",
+      "passed": true,
+      "details": {
+        "output": "outputs/qfinal_smoke3",
+        "missing": [],
+        "problems": []
+      }
+    },
+    {
+      "name": "artifact_integrity:qfinal_full",
+      "passed": true,
+      "details": {
+        "output": "outputs/qfinal_full",
+        "missing": [],
+        "problems": []
+      }
+    },
+    {
+      "name": "wheel_integrity",
+      "passed": true,
+      "details": {
+        "wheel": "artifacts/dist/heavy_bulky_delivery_reliability-0.4.3-py3-none-any.whl",
+        "sha256": "1d6d9a7d7c6ad2a3b44df176883ab99bec80fed0830153201d6b304d6a38c0f5",
+        "missing": [],
+        "file_count": 37
+      }
+    },
+    {
+      "name": "artifact_integrity:package_first_wheel_smoke",
+      "passed": true,
+      "details": {
+        "output": "outputs/package_first_wheel_smoke",
+        "missing": [],
+        "problems": []
+      }
+    },
+    {
+      "name": "artifact_integrity:qfinal_smoke2",
+      "passed": true,
+      "details": {
+        "output": "outputs/qfinal_smoke2",
+        "missing": [],
+        "problems": []
+      }
+    },
+    {
+      "name": "decision_fingerprint_reproducibility",
+      "passed": true,
+      "details": {
+        "first": "dabb0d321813c34c46964d3b7df8f57b72ae35ed440b7d04b043b56423ebbe60",
+        "second": "dabb0d321813c34c46964d3b7df8f57b72ae35ed440b7d04b043b56423ebbe60"
+      }
+    },
+    {
+      "name": "wheel_bitwise_reproducibility",
+      "passed": true,
+      "details": {
+        "first_sha256": "1d6d9a7d7c6ad2a3b44df176883ab99bec80fed0830153201d6b304d6a38c0f5",
+        "second_sha256": "1d6d9a7d7c6ad2a3b44df176883ab99bec80fed0830153201d6b304d6a38c0f5"
+      }
+    },
+    {
+      "name": "sdist_integrity",
+      "passed": true,
+      "details": {
+        "sdist": "artifacts/dist/heavy_bulky_delivery_reliability-0.4.3.tar.gz",
+        "sha256": "81eac60e47d1d493beffeb25d26f177d2076ea1788fb599ba180bbe6f04d7076",
+        "missing": [],
+        "file_count": 58
+      }
+    },
+    {
+      "name": "sdist_content_reproducibility",
+      "passed": true,
+      "details": {
+        "first_sha256": "81eac60e47d1d493beffeb25d26f177d2076ea1788fb599ba180bbe6f04d7076",
+        "second_sha256": "797cbbb7b1662812161d84bbf538d66a13d822f7d927860ecde3935b3f16c851",
+        "content_file_count": 52,
+        "differing_files": []
+      }
+    },
+    {
+      "name": "artifact_integrity:package_first_sdist_smoke",
+      "passed": true,
+      "details": {
+        "output": "outputs/package_first_sdist_smoke",
+        "missing": [],
+        "problems": []
+      }
+    },
+    {
+      "name": "api_runtime_smoke",
+      "passed": true,
+      "details": {
+        "report": "reports/qfinal_api_runtime_smoke.json",
+        "mismatches": {},
+        "workers": 2,
+        "latest_elapsed_ms": 20.753,
+        "elapsed_seconds": 15.043898
+      }
+    }
+  ]
+}

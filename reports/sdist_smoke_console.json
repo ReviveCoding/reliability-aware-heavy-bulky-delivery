@@ -1,0 +1,429 @@
+{
+  "used_m5_public_pattern": false,
+  "contracts": {
+    "data": {
+      "passed": true,
+      "demand_rows": 560,
+      "historical_order_rows": 1987,
+      "planning_order_rows": 37,
+      "vehicle_rows": 16,
+      "crew_rows": 16
+    },
+    "forecast": {
+      "passed": true,
+      "rows": 4,
+      "series": 4
+    },
+    "routes": {
+      "passed": true,
+      "routes": 77,
+      "member_rows": 185,
+      "strategies": 5,
+      "partition_checks": 10,
+      "singleton_time_exceptions": 0
+    }
+  },
+  "rows": {
+    "demand": 560,
+    "historical_orders": 1987,
+    "planning_orders": 37,
+    "route_candidates": 77
+  },
+  "forecast_champion": {
+    "model": "lightgbm_quantile",
+    "wape": 0.2796373127061908,
+    "mae": 3.565375737003933,
+    "pinball_p10": 0.7775236695810589,
+    "pinball_p90": 0.9808746308944686,
+    "interval_80_coverage": 0.6607142857142857,
+    "interval_coverage_gap": 0.13928571428571435,
+    "capacity_regret_proxy": 8.357142857142858,
+    "worst_series_wape": 0.44548406929114004,
+    "worst_series_coverage_gap": 0.30000000000000004,
+    "selection_score": 0.4063758018850335,
+    "backtest_protocol": "fixed_model_rolling_one_step",
+    "promoted": true
+  },
+  "forecast_all": [
+    {
+      "model": "lightgbm_quantile",
+      "wape": 0.2796373127061908,
+      "mae": 3.565375737003933,
+      "pinball_p10": 0.7775236695810589,
+      "pinball_p90": 0.9808746308944686,
+      "interval_80_coverage": 0.6607142857142857,
+      "interval_coverage_gap": 0.13928571428571435,
+      "capacity_regret_proxy": 8.357142857142858,
+      "worst_series_wape": 0.44548406929114004,
+      "worst_series_coverage_gap": 0.30000000000000004,
+      "selection_score": 0.4063758018850335,
+      "backtest_protocol": "fixed_model_rolling_one_step",
+      "promoted": true
+    },
+    {
+      "model": "seasonal_naive",
+      "wape": 0.40756302521008403,
+      "mae": 5.196428571428571,
+      "pinball_p10": 1.2473214285714285,
+      "pinball_p90": 1.3566964285714285,
+      "interval_80_coverage": 0.5357142857142857,
+      "interval_coverage_gap": 0.26428571428571435,
+      "capacity_regret_proxy": 10.982142857142858,
+      "worst_series_wape": 0.5661764705882353,
+      "worst_series_coverage_gap": 0.4428571428571429,
+      "selection_score": 0.5853361344537815,
+      "backtest_protocol": "fixed_model_rolling_one_step",
+      "promoted": false
+    }
+  ],
+  "forecast_candidate_status": [
+    {
+      "model": "seasonal_naive",
+      "status": "completed",
+      "eligible": true
+    },
+    {
+      "model": "lightgbm_quantile",
+      "status": "completed",
+      "eligible": true
+    }
+  ],
+  "forecast_slices": [
+    {
+      "model": "lightgbm_quantile",
+      "station_id": "STATION_A",
+      "service_type": "installation",
+      "wape": 0.44548406929114004,
+      "mae": 4.3275595302567895,
+      "pinball_p10": 1.1647899403818223,
+      "pinball_p90": 0.7577595800617126,
+      "interval_80_coverage": 0.5,
+      "interval_coverage_gap": 0.30000000000000004,
+      "capacity_regret_proxy": 8.0
+    },
+    {
+      "model": "lightgbm_quantile",
+      "station_id": "STATION_A",
+      "service_type": "threshold",
+      "wape": 0.2826162980005987,
+      "mae": 2.9069104937204435,
+      "pinball_p10": 0.5447712298903176,
+      "pinball_p90": 0.8960334294190841,
+      "interval_80_coverage": 0.7857142857142857,
+      "interval_coverage_gap": 0.014285714285714346,
+      "capacity_regret_proxy": 7.5
+    },
+    {
+      "model": "lightgbm_quantile",
+      "station_id": "STATION_B",
+      "service_type": "installation",
+      "wape": 0.2811513408843421,
+      "mae": 4.839819510937604,
+      "pinball_p10": 0.9909427528023537,
+      "pinball_p90": 1.6956743290896372,
+      "interval_80_coverage": 0.5714285714285714,
+      "interval_coverage_gap": 0.22857142857142865,
+      "capacity_regret_proxy": 11.642857142857142
+    },
+    {
+      "model": "lightgbm_quantile",
+      "station_id": "STATION_B",
+      "service_type": "threshold",
+      "wape": 0.15865796778970226,
+      "mae": 2.187213413100895,
+      "pinball_p10": 0.4095907552497424,
+      "pinball_p90": 0.5740311850074408,
+      "interval_80_coverage": 0.7857142857142857,
+      "interval_coverage_gap": 0.014285714285714346,
+      "capacity_regret_proxy": 6.285714285714286
+    },
+    {
+      "model": "seasonal_naive",
+      "station_id": "STATION_A",
+      "service_type": "installation",
+      "wape": 0.5661764705882353,
+      "mae": 5.5,
+      "pinball_p10": 1.7007142857142856,
+      "pinball_p90": 1.3210714285714285,
+      "interval_80_coverage": 0.42857142857142855,
+      "interval_coverage_gap": 0.3714285714285715,
+      "capacity_regret_proxy": 10.0
+    },
+    {
+      "model": "seasonal_naive",
+      "station_id": "STATION_A",
+      "service_type": "threshold",
+      "wape": 0.3680555555555556,
+      "mae": 3.7857142857142856,
+      "pinball_p10": 0.7192857142857142,
+      "pinball_p90": 1.4332142857142856,
+      "interval_80_coverage": 0.6428571428571429,
+      "interval_coverage_gap": 0.15714285714285714,
+      "capacity_regret_proxy": 10.071428571428571
+    },
+    {
+      "model": "seasonal_naive",
+      "station_id": "STATION_B",
+      "service_type": "installation",
+      "wape": 0.44398340248962653,
+      "mae": 7.642857142857143,
+      "pinball_p10": 1.7299999999999998,
+      "pinball_p90": 1.6849999999999998,
+      "interval_80_coverage": 0.35714285714285715,
+      "interval_coverage_gap": 0.4428571428571429,
+      "capacity_regret_proxy": 13.571428571428571
+    },
+    {
+      "model": "seasonal_naive",
+      "station_id": "STATION_B",
+      "service_type": "threshold",
+      "wape": 0.27979274611398963,
+      "mae": 3.857142857142857,
+      "pinball_p10": 0.8392857142857143,
+      "pinball_p90": 0.9874999999999999,
+      "interval_80_coverage": 0.7142857142857143,
+      "interval_coverage_gap": 0.08571428571428574,
+      "capacity_regret_proxy": 10.285714285714286
+    }
+  ],
+  "capacity": {
+    "capacity_regret_proxy": 2.177437704552938,
+    "mean_planned_vehicles": 7.5,
+    "mean_planned_crews": 7.5,
+    "station_underforecast_rate": 0.0,
+    "total_capacity_shortfall": 0,
+    "station_capacity_shortfall_rate": 0.0,
+    "total_reserve_shortfall": 2,
+    "route_pool_reconciled": true,
+    "route_pool_min_routes_total": 14
+  },
+  "rass": {
+    "duration_mae": 14.045465693833199,
+    "duration_bias": 1.5191802608094256,
+    "p90_underprediction_mean": 1.4189384245497765,
+    "p90_coverage": 0.8378378378378378,
+    "reference_fallback_rate": 0.0,
+    "high_confidence_rate": 1.0
+  },
+  "rass_ablation": [
+    {
+      "method": "unshrunk_similarity",
+      "duration_mae": 13.704176808385172,
+      "duration_bias": 1.9365716597810534
+    },
+    {
+      "method": "shrunk_rass",
+      "duration_mae": 14.045465693833199,
+      "duration_bias": 1.5191802608094256
+    },
+    {
+      "method": "random_reference",
+      "duration_mae": 14.117128378378382,
+      "duration_bias": 1.2678040540540547
+    },
+    {
+      "method": "cohort_median",
+      "duration_mae": 14.933783783783786,
+      "duration_bias": 3.6845945945945986
+    },
+    {
+      "method": "global_median",
+      "duration_mae": 33.52297297297298,
+      "duration_bias": -4.857567567567563
+    }
+  ],
+  "failure_model": {
+    "model": "logistic_regression",
+    "validation_brier": 0.06999589408808499,
+    "validation_log_loss": 0.2580038794652247,
+    "validation_pr_auc": 0.23455891694168846,
+    "validation_ece": 0.007471922196228326,
+    "planning_mean_risk": 0.0830334769134366
+  },
+  "advanced_service": {
+    "status": "disabled",
+    "metrics": {
+      "enabled": false
+    }
+  },
+  "optimizer": {
+    "status": "GREEDY",
+    "objective": 6073.897931447205,
+    "best_bound": null,
+    "relative_gap": null,
+    "fallback_used": false,
+    "fallback_reason": null,
+    "solve_time_seconds": 0.08171367800002827,
+    "selected_routes": 14,
+    "unserved_orders": 0
+  },
+  "risk_aware_optimizer_challenger": {
+    "status": "OPTIMAL",
+    "objective": 5995.0,
+    "best_bound": 5995.0,
+    "relative_gap": 0.0,
+    "fallback_used": false,
+    "fallback_reason": null,
+    "solve_time_seconds": 0.9784251809999773,
+    "selected_routes": 15,
+    "unserved_orders": 0
+  },
+  "deterministic_optimizer_challenger": {
+    "status": "FEASIBLE",
+    "objective": 5123.0,
+    "best_bound": 4788.0,
+    "relative_gap": 0.06539137224282647,
+    "fallback_used": false,
+    "fallback_reason": null,
+    "solve_time_seconds": 1.094080455999972,
+    "selected_routes": 15,
+    "unserved_orders": 0
+  },
+  "label_informed_diagnostic_planner": {
+    "status": "GREEDY",
+    "objective": 5937.745287357662,
+    "best_bound": null,
+    "relative_gap": null,
+    "fallback_used": false,
+    "fallback_reason": null,
+    "solve_time_seconds": 0.07848819000003004,
+    "selected_routes": 14,
+    "unserved_orders": 0
+  },
+  "plan_validation": {
+    "duplicate_assignments": 0,
+    "missing_decisions": 0,
+    "served_unserved_overlap": 0,
+    "unknown_orders": 0,
+    "reused_vehicles": 0,
+    "reused_crews": 0,
+    "capacity_violations": 0,
+    "resource_station_violations": 0,
+    "skill_violations": 0,
+    "crew_size_violations": 0,
+    "shift_violations": 0,
+    "hard_constraint_violations": 0
+  },
+  "optimized_simulation": {
+    "expected_cost": 5573.557721937516,
+    "cvar95_cost": 8122.693806425329,
+    "mean_overtime_minutes": 21.725250124559853,
+    "mean_unserved_orders": 0.0,
+    "mean_failed_attempts": 4.366666666666666,
+    "mean_vehicle_failures": 0.36666666666666664,
+    "mean_crew_absences": 0.5666666666666667
+  },
+  "greedy_simulation": {
+    "expected_cost": 5311.1213987052915,
+    "cvar95_cost": 7422.683653925784,
+    "mean_overtime_minutes": 10.459715001954384,
+    "mean_unserved_orders": 0.0,
+    "mean_failed_attempts": 4.366666666666666,
+    "mean_vehicle_failures": 0.3333333333333333,
+    "mean_crew_absences": 0.5333333333333333
+  },
+  "deterministic_simulation": {
+    "expected_cost": 5536.341050656926,
+    "cvar95_cost": 8344.138269178979,
+    "mean_overtime_minutes": 17.0731662144861,
+    "mean_unserved_orders": 0.0,
+    "mean_failed_attempts": 4.366666666666666,
+    "mean_vehicle_failures": 0.36666666666666664,
+    "mean_crew_absences": 0.5666666666666667
+  },
+  "label_informed_proxy_simulation": {
+    "expected_cost": 5355.309559465016,
+    "cvar95_cost": 7886.963484768961,
+    "mean_overtime_minutes": 15.98323509691995,
+    "mean_unserved_orders": 0.0,
+    "mean_failed_attempts": 4.366666666666666,
+    "mean_vehicle_failures": 0.3333333333333333,
+    "mean_crew_absences": 0.5333333333333333
+  },
+  "scenario_bank_validation": {
+    "correct_replications": true,
+    "no_duplicate_events": true,
+    "complete_entity_grids": true,
+    "probabilities_in_range": true,
+    "positive_multipliers": true
+  },
+  "simulator_vv": {
+    "nonnegative_invariants": true,
+    "cost_component_reconciliation": true,
+    "deterministic_replay": true,
+    "scenario_bank_valid": true,
+    "policy_discrimination_sanity": true
+  },
+  "sql_validation": {
+    "available": true,
+    "passed": true,
+    "reason": "",
+    "mart_count": 3,
+    "row_count": 578
+  },
+  "paired_policy_comparisons": {
+    "risk_aware_vs_greedy": {
+      "mean_cost_delta": 262.4363232322268,
+      "relative_mean_cost_delta": 0.04941260113094039,
+      "paired_win_rate": 0.06666666666666667,
+      "bootstrap_ci95_low": 144.8538512257162,
+      "bootstrap_ci95_high": 404.9000694486215
+    },
+    "deterministic_vs_greedy": {
+      "mean_cost_delta": 225.21965195163676,
+      "relative_mean_cost_delta": 0.04240529165959928,
+      "paired_win_rate": 0.1,
+      "bootstrap_ci95_low": 89.51159885685473,
+      "bootstrap_ci95_high": 383.81438849987063
+    },
+    "risk_aware_vs_deterministic": {
+      "mean_cost_delta": 37.21667128059004,
+      "relative_mean_cost_delta": 0.006722250479163313,
+      "paired_win_rate": 0.03333333333333333,
+      "bootstrap_ci95_low": -32.448115349224004,
+      "bootstrap_ci95_high": 104.04969603011807
+    }
+  },
+  "decision_value": {
+    "relative_expected_cost_change_vs_greedy": 0.049412601130939926,
+    "deterministic_minus_risk_aware_expected_cost_delta": -37.21667128059016,
+    "best_deployable_policy": "greedy",
+    "best_deployable_expected_cost": 5311.1213987052915,
+    "risk_aware_regret_within_deployable_set": 262.4363232322248,
+    "label_informed_proxy_cost_delta_vs_risk_aware": -218.24816247250055,
+    "note": "Offline common-scenario comparisons. The label-informed proxy uses realized base service labels for route scoring but is not a scenario-wise perfect-information lower bound, so no EVPI or oracle-regret claim is made."
+  },
+  "policy_selection": {
+    "champion": "greedy",
+    "champion_simulation_key": "greedy_simulation",
+    "deterministic_component_decision": "HOLD_DETERMINISTIC",
+    "risk_aware_component_decision": "HOLD_RISK_AWARE",
+    "deterministic_promotion_evidence": {
+      "expected_cost_improvement_with_paired_ci": false,
+      "tail_cost_improvement_with_mean_guardrail": false,
+      "solver_quality": {
+        "status_eligible": true,
+        "no_solver_fallback": true,
+        "no_unserved_orders": true,
+        "relative_gap_within_gate": true
+      }
+    },
+    "risk_aware_baseline": "greedy",
+    "risk_aware_promotion_evidence": {
+      "expected_cost_improvement_with_paired_ci": false,
+      "tail_cost_improvement_with_mean_guardrail": false,
+      "solver_quality": {
+        "status_eligible": true,
+        "no_solver_fallback": true,
+        "no_unserved_orders": true,
+        "relative_gap_within_gate": true
+      }
+    },
+    "promotion_rule": "Promote for >=2% expected-cost improvement only when the paired bootstrap 95% CI is entirely below zero, or for >=5% CVaR95 improvement with expected cost within 2%; solver status, fallback, unserved-order, and relative-gap gates must also pass."
+  },
+  "relative_expected_cost_change_vs_greedy": 0.0,
+  "release": {
+    "decision": "PROMOTE",
+    "reasons": []
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "schema_version": "1.1",
+  "project_name": "reliability-aware-heavy-bulky-delivery",
+  "candidate_version": "0.4.3-qualified-final-clean",
+  "package_version": "0.4.3",
+  "created_at_utc": "2026-06-18T20:27:34.114683+00:00",
+  "source_fingerprint_sha256": "2841e37a3cff6806f9af17aa8ef7669be7443beda41cfbe930c74f0dfce41151",
+  "dirty_tree": false,
+  "diff_scope": "final qualification hygiene: CLI version support retained, distribution smoke extras runner fixed, docs/manifests regenerated, caches/build artifacts removed; model and metric logic unchanged",
+  "final_metrics": {
+    "tests_passed": 66,
+    "coverage_percent": 74.47016628627323,
+    "source_smoke": {
+      "output": "outputs/qfinal_smoke3",
+      "elapsed_seconds": 5.407581,
+      "release": "PROMOTE",
+      "rows": {
+        "demand": 560,
+        "historical_orders": 1987,
+        "planning_orders": 37,
+        "route_candidates": 77
+      },
+      "forecast_model": "lightgbm_quantile",
+      "forecast_wape": 0.2796373127061908,
+      "fallback_used": false,
+      "unserved_orders": 0,
+      "hard_constraint_violations": 0,
+      "sql_validation_passed": true
+    },
+    "source_full": {
+      "output": "outputs/qfinal_full",
+      "elapsed_seconds": 14.09358,
+      "release": "PROMOTE",
+      "rows": {
+        "demand": 3537,
+        "historical_orders": 14141,
+        "planning_orders": 206,
+        "route_candidates": 404
+      },
+      "forecast_model": "lightgbm_quantile",
+      "forecast_wape": 0.19688235966930098,
+      "fallback_used": false,
+      "unserved_orders": 0,
+      "hard_constraint_violations": 0,
+      "sql_validation_passed": true
+    },
+    "m5_pattern": {
+      "output": "outputs/qfinal_m5",
+      "elapsed_seconds": 3.50558,
+      "release": "PROMOTE",
+      "rows": {
+        "demand": 560,
+        "historical_orders": 1427,
+        "planning_orders": 31,
+        "route_candidates": 62
+      },
+      "forecast_model": "lightgbm_quantile",
+      "forecast_wape": 0.30826310385694633,
+      "fallback_used": false,
+      "unserved_orders": 0,
+      "hard_constraint_violations": 0,
+      "sql_validation_passed": true
+    },
+    "wheel_package_first": {
+      "output": "outputs/package_first_wheel_smoke",
+      "elapsed_seconds": 6.901936,
+      "release": "PROMOTE",
+      "rows": {
+        "demand": 560,
+        "historical_orders": 1987,
+        "planning_orders": 37,
+        "route_candidates": 77
+      },
+      "forecast_model": "lightgbm_quantile",
+      "forecast_wape": 0.2796373127061908,
+      "fallback_used": false,
+      "unserved_orders": 0,
+      "hard_constraint_violations": 0,
+      "sql_validation_passed": true
+    },
+    "sdist_package_first": {
+      "output": "outputs/package_first_sdist_smoke",
+      "elapsed_seconds": 7.07317,
+      "release": "PROMOTE",
+      "rows": {
+        "demand": 560,
+        "historical_orders": 1987,
+        "planning_orders": 37,
+        "route_candidates": 77
+      },
+      "forecast_model": "lightgbm_quantile",
+      "forecast_wape": 0.2796373127061908,
+      "fallback_used": false,
+      "unserved_orders": 0,
+      "hard_constraint_violations": 0,
+      "sql_validation_passed": true
+    }
+  },
+  "required_entrypoints": [
+    "heavy-bulky --version",
+    "heavy-bulky full-pipeline --config configs/smoke.yaml --output-dir outputs/smoke",
+    "heavy-bulky verify-output --output-dir outputs/smoke",
+    "bash scripts/run_full_validation.sh"
+  ],
+  "known_limitations_path": "docs/known_limitations.md",
+  "unresolved_items": [
+    {
+      "item": "GitHub-hosted Actions",
+      "status": "not_executed"
+    },
+    {
+      "item": "Windows runner",
+      "status": "not_executed"
+    },
+    {
+      "item": "Docker daemon",
+      "status": "not_available"
+    },
+    {
+      "item": "GPU/CUDA",
+      "status": "not_executed"
+    },
+    {
+      "item": "Chronos optional path",
+      "status": "not_executed"
+    }
+  ]
+}

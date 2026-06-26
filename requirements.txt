@@ -1,0 +1,12 @@
+-c constraints-verified.txt
+numpy
+pandas
+scikit-learn
+PyYAML
+pydantic
+tabulate
+lightgbm
+ortools
+fastapi
+uvicorn
+duckdb

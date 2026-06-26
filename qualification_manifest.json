@@ -1,0 +1,320 @@
+{
+  "schema_version": "1.1",
+  "candidate": "reliability-aware-heavy-bulky-delivery-v0.4.3-qualified-final-clean",
+  "package_version": "0.4.3",
+  "source_commit": null,
+  "source_fingerprint": "2841e37a3cff6806f9af17aa8ef7669be7443beda41cfbe930c74f0dfce41151",
+  "qualification_profile": "EXTENDED-local-subset",
+  "final_verdict": "CONDITIONALLY QUALIFIED",
+  "reason_for_conditional": "Local Linux/Python 3.13 CPU Q1/Q2/Q3 gates passed; GitHub-hosted Q4, Windows runner, Docker runtime, GPU/CUDA, and Chronos optional path were not executed.",
+  "created_at_utc": "2026-06-18T20:27:34.105175+00:00",
+  "environment": {
+    "python": "3.13.5 (main, May  5 2026, 21:05:52) [GCC 14.2.0]",
+    "platform": "Linux-4.4.0-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "docker_available": false
+  },
+  "evidence_levels": {
+    "Q0": "repo/workflow/docs inspected",
+    "Q1": "commands executed in current workspace",
+    "Q2": "clean extracted source path and source/package smoke executed",
+    "Q3": "wheel and sdist installed as built package first and smoke-tested; full dependency install with extras is configured in validation runners",
+    "Q4": "not executed"
+  },
+  "commands": {
+    "pip_check": {
+      "exit_code": 0,
+      "log": "logs/qfinal/pip_check.log"
+    },
+    "direct_dependencies": {
+      "exit_code": 0,
+      "log": "logs/qfinal/direct_deps.log"
+    },
+    "cli_version": {
+      "exit_code": 0,
+      "log": "logs/qfinal/cli_version.out"
+    },
+    "ruff_format": {
+      "exit_code": 0,
+      "log": "logs/qfinal/ruff_format.log"
+    },
+    "ruff_check": {
+      "exit_code": 0,
+      "log": "logs/qfinal/ruff_check.log"
+    },
+    "compile": {
+      "exit_code": 0,
+      "log": "logs/qfinal/compile.log"
+    },
+    "pytest_full_after_final_patch": {
+      "exit_code": 0,
+      "log": "reports/coverage.json",
+      "passed": 66,
+      "coverage_percent": 74.47016628627323
+    },
+    "source_smoke": {
+      "exit_code": 0,
+      "output": "outputs/qfinal_smoke3"
+    },
+    "source_full": {
+      "exit_code": 0,
+      "output": "outputs/qfinal_full"
+    },
+    "m5_pattern": {
+      "exit_code": 0,
+      "output": "outputs/qfinal_m5"
+    },
+    "api_two_worker": {
+      "exit_code": 0,
+      "report": "reports/qfinal_api_runtime_smoke.json"
+    },
+    "package_first_wheel_smoke": {
+      "exit_code": 0,
+      "output": "outputs/package_first_wheel_smoke"
+    },
+    "package_first_sdist_smoke": {
+      "exit_code": 0,
+      "output": "outputs/package_first_sdist_smoke"
+    }
+  },
+  "test_summary": {
+    "passed": 66,
+    "failed": 0,
+    "full_suite_consecutive_passes": 2,
+    "coverage_percent": 74.47016628627323,
+    "coverage_gate_percent": 72.0
+  },
+  "runtime_results": {
+    "source_smoke": {
+      "output": "outputs/qfinal_smoke3",
+      "elapsed_seconds": 5.407581,
+      "release": "PROMOTE",
+      "rows": {
+        "demand": 560,
+        "historical_orders": 1987,
+        "planning_orders": 37,
+        "route_candidates": 77
+      },
+      "forecast_model": "lightgbm_quantile",
+      "forecast_wape": 0.2796373127061908,
+      "fallback_used": false,
+      "unserved_orders": 0,
+      "hard_constraint_violations": 0,
+      "sql_validation_passed": true
+    },
+    "source_smoke_repeat": {
+      "output": "outputs/qfinal_smoke2",
+      "elapsed_seconds": 5.284929,
+      "release": "PROMOTE",
+      "rows": {
+        "demand": 560,
+        "historical_orders": 1987,
+        "planning_orders": 37,
+        "route_candidates": 77
+      },
+      "forecast_model": "lightgbm_quantile",
+      "forecast_wape": 0.2796373127061908,
+      "fallback_used": false,
+      "unserved_orders": 0,
+      "hard_constraint_violations": 0,
+      "sql_validation_passed": true
+    },
+    "source_full": {
+      "output": "outputs/qfinal_full",
+      "elapsed_seconds": 14.09358,
+      "release": "PROMOTE",
+      "rows": {
+        "demand": 3537,
+        "historical_orders": 14141,
+        "planning_orders": 206,
+        "route_candidates": 404
+      },
+      "forecast_model": "lightgbm_quantile",
+      "forecast_wape": 0.19688235966930098,
+      "fallback_used": false,
+      "unserved_orders": 0,
+      "hard_constraint_violations": 0,
+      "sql_validation_passed": true
+    },
+    "m5_pattern": {
+      "output": "outputs/qfinal_m5",
+      "elapsed_seconds": 3.50558,
+      "release": "PROMOTE",
+      "rows": {
+        "demand": 560,
+        "historical_orders": 1427,
+        "planning_orders": 31,
+        "route_candidates": 62
+      },
+      "forecast_model": "lightgbm_quantile",
+      "forecast_wape": 0.30826310385694633,
+      "fallback_used": false,
+      "unserved_orders": 0,
+      "hard_constraint_violations": 0,
+      "sql_validation_passed": true
+    },
+    "api_smoke_output": {
+      "output": "outputs/qfinal_api_runtime/outputs/smoke",
+      "elapsed_seconds": 6.162711,
+      "release": "PROMOTE",
+      "rows": {
+        "demand": 560,
+        "historical_orders": 1987,
+        "planning_orders": 37,
+        "route_candidates": 77
+      },
+      "forecast_model": "lightgbm_quantile",
+      "forecast_wape": 0.2796373127061908,
+      "fallback_used": false,
+      "unserved_orders": 0,
+      "hard_constraint_violations": 0,
+      "sql_validation_passed": true
+    },
+    "wheel_package_first": {
+      "output": "outputs/package_first_wheel_smoke",
+      "elapsed_seconds": 6.901936,
+      "release": "PROMOTE",
+      "rows": {
+        "demand": 560,
+        "historical_orders": 1987,
+        "planning_orders": 37,
+        "route_candidates": 77
+      },
+      "forecast_model": "lightgbm_quantile",
+      "forecast_wape": 0.2796373127061908,
+      "fallback_used": false,
+      "unserved_orders": 0,
+      "hard_constraint_violations": 0,
+      "sql_validation_passed": true
+    },
+    "sdist_package_first": {
+      "output": "outputs/package_first_sdist_smoke",
+      "elapsed_seconds": 7.07317,
+      "release": "PROMOTE",
+      "rows": {
+        "demand": 560,
+        "historical_orders": 1987,
+        "planning_orders": 37,
+        "route_candidates": 77
+      },
+      "forecast_model": "lightgbm_quantile",
+      "forecast_wape": 0.2796373127061908,
+      "fallback_used": false,
+      "unserved_orders": 0,
+      "hard_constraint_violations": 0,
+      "sql_validation_passed": true
+    }
+  },
+  "api_runtime": {
+    "command": [
+      "python",
+      "-m",
+      "uvicorn",
+      "heavy_bulky.api:app",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "38883",
+      "--workers",
+      "2",
+      "--log-level",
+      "warning"
+    ],
+    "workers": 2,
+    "port": 38883,
+    "ready": {
+      "status": "ready",
+      "service": "heavy-bulky-delivery-reliability",
+      "version": "0.4.3"
+    },
+    "health_status": 200,
+    "run_statuses": [
+      200,
+      409
+    ],
+    "run_responses": [
+      {
+        "status": 200,
+        "release": "PROMOTE",
+        "detail": null
+      },
+      {
+        "status": 409,
+        "release": null,
+        "detail": "publication_conflict"
+      }
+    ],
+    "latest_status": 200,
+    "latest_release": "PROMOTE",
+    "latest_elapsed_ms": 20.753,
+    "elapsed_seconds": 15.043898,
+    "server_returncode": 0,
+    "graceful_shutdown": true,
+    "passed": true
+  },
+  "problems_found_and_fixed": [
+    {
+      "severity": "Medium",
+      "problem": "CLI --version failed",
+      "fix": "Added global --version and regression test",
+      "result": "PASS"
+    },
+    {
+      "severity": "High",
+      "problem": "Distribution smoke runner installed wheel/sdist with --no-deps and could miss full runtime extras",
+      "fix": "Bash/PowerShell validation runners now install ${WHEEL}[full] and ${SDIST}[full]; regression test added",
+      "result": "PASS"
+    },
+    {
+      "severity": "Low",
+      "problem": "Final bundle contained stale absolute paths, old 64-test wording, build/egg-info/cache files",
+      "fix": "Regenerated manifests/docs and removed caches/build artifacts",
+      "result": "PASS"
+    }
+  ],
+  "unresolved_items": [
+    {
+      "item": "GitHub-hosted Actions",
+      "status": "not_executed"
+    },
+    {
+      "item": "Windows runner",
+      "status": "not_executed"
+    },
+    {
+      "item": "Docker daemon",
+      "status": "not_available"
+    },
+    {
+      "item": "GPU/CUDA",
+      "status": "not_executed"
+    },
+    {
+      "item": "Chronos optional path",
+      "status": "not_executed"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "artifacts/dist/heavy_bulky_delivery_reliability-0.4.3-py3-none-any.whl",
+      "size": 68044,
+      "sha256": "1d6d9a7d7c6ad2a3b44df176883ab99bec80fed0830153201d6b304d6a38c0f5"
+    },
+    {
+      "path": "artifacts/dist/heavy_bulky_delivery_reliability-0.4.3.tar.gz",
+      "size": 68896,
+      "sha256": "81eac60e47d1d493beffeb25d26f177d2076ea1788fb599ba180bbe6f04d7076"
+    },
+    {
+      "path": "artifacts/repeat/heavy_bulky_delivery_reliability-0.4.3-py3-none-any.whl",
+      "size": 68044,
+      "sha256": "1d6d9a7d7c6ad2a3b44df176883ab99bec80fed0830153201d6b304d6a38c0f5"
+    },
+    {
+      "path": "artifacts/repeat/heavy_bulky_delivery_reliability-0.4.3.tar.gz",
+      "size": 68897,
+      "sha256": "797cbbb7b1662812161d84bbf538d66a13d822f7d927860ecde3935b3f16c851"
+    }
+  ]
+}

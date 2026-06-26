@@ -1,0 +1,47 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "uvicorn",
+    "heavy_bulky.api:app",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "38883",
+    "--workers",
+    "2",
+    "--log-level",
+    "warning"
+  ],
+  "workers": 2,
+  "port": 38883,
+  "ready": {
+    "status": "ready",
+    "service": "heavy-bulky-delivery-reliability",
+    "version": "0.4.3"
+  },
+  "health_status": 200,
+  "run_statuses": [
+    200,
+    409
+  ],
+  "run_responses": [
+    {
+      "status": 200,
+      "release": "PROMOTE",
+      "detail": null
+    },
+    {
+      "status": 409,
+      "release": null,
+      "detail": "publication_conflict"
+    }
+  ],
+  "latest_status": 200,
+  "latest_release": "PROMOTE",
+  "latest_elapsed_ms": 20.753,
+  "elapsed_seconds": 15.043898,
+  "server_returncode": 0,
+  "graceful_shutdown": true,
+  "passed": true
+}

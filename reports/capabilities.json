@@ -1,0 +1,14 @@
+{
+  "package_version": "0.4.3",
+  "python": "3.13.5",
+  "platform": "Linux-4.4.0-x86_64-with-glibc2.41",
+  "optional_dependencies": {
+    "lightgbm": true,
+    "ortools": true,
+    "duckdb": true,
+    "fastapi": true,
+    "torch": false,
+    "chronos": false
+  },
+  "cuda_available": false
+}

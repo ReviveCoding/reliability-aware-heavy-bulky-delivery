@@ -1,0 +1,52 @@
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+data/raw/
+outputs/*
+!outputs/.gitkeep
+artifacts/*
+!artifacts/.gitkeep
+
+
+# Amazon06 clean-publication exclusions
+# Local environments, validation evidence, generated outputs
+/.local-run/
+/.venv/
+/build/
+/dist/
+/src/*.egg-info/
+
+# Python caches and test/coverage artifacts
+**/__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+coverage.xml
+coverage.json
+htmlcov/
+
+# Package artifacts
+*.whl
+*.tar.gz
+*.zip
+
+# Local logs, configuration, and editor artifacts
+*.log
+.env
+.env.*
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+
+# Amazon06 P22 generated-validation exclusions
+# Generated runtime validation material
+/logs/
+/reports/qfinal_coverage*.json
+/reports/m5_console.json
+/reports/m5_reaudit_console.json

@@ -1,0 +1,26 @@
+{
+  "status": "hold",
+  "elapsed_seconds": 8.928078915000015,
+  "metrics": {
+    "enabled": true,
+    "status": "hold",
+    "device": "cpu",
+    "train_rows": 1592,
+    "validation_rows": 395,
+    "epochs": 4,
+    "baseline_duration_mae": 9.874924632754244,
+    "advanced_duration_mae": 10.283031063031547,
+    "relative_duration_improvement": -0.0413275488628694,
+    "baseline_failure_model": "logistic_regression",
+    "baseline_failure_brier": 0.069995894088085,
+    "advanced_failure_brier": 0.07107816636562347,
+    "relative_failure_brier_change": 0.015461939469999606,
+    "advanced_failure_ece": 0.01005435576544533,
+    "validation_training_loss": 0.3553791480447779,
+    "final_training_loss": 0.35327830813191435,
+    "residual_log_sigma": 0.20209593566945913,
+    "historical_fit_duration_mae": 10.926767997568916,
+    "promotion_rule": "Promote only when duration MAE improves by the configured minimum and failure Brier relative regression stays within its guardrail."
+  },
+  "claim_boundary": "Reports the device actually used. A CPU run does not support a CUDA execution claim; a HOLD result demonstrates that the baseline-first promotion gate remained active."
+}

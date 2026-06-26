@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.1",
+  "candidate": "reliability-aware-heavy-bulky-delivery-v0.4.3-qualified-final-clean",
+  "source_commit": null,
+  "source_fingerprint": "2841e37a3cff6806f9af17aa8ef7669be7443beda41cfbe930c74f0dfce41151",
+  "release_zip_filename": "reliability-aware-heavy-bulky-delivery-v0.4.3-qualified-final-clean.zip",
+  "release_zip_sha256_sidecar": "reliability-aware-heavy-bulky-delivery-v0.4.3-qualified-final-clean-SHA256SUMS.txt",
+  "artifact_records": [
+    {
+      "path": "artifacts/dist/heavy_bulky_delivery_reliability-0.4.3-py3-none-any.whl",
+      "size": 68044,
+      "sha256": "1d6d9a7d7c6ad2a3b44df176883ab99bec80fed0830153201d6b304d6a38c0f5"
+    },
+    {
+      "path": "artifacts/dist/heavy_bulky_delivery_reliability-0.4.3.tar.gz",
+      "size": 68896,
+      "sha256": "81eac60e47d1d493beffeb25d26f177d2076ea1788fb599ba180bbe6f04d7076"
+    },
+    {
+      "path": "artifacts/repeat/heavy_bulky_delivery_reliability-0.4.3-py3-none-any.whl",
+      "size": 68044,
+      "sha256": "1d6d9a7d7c6ad2a3b44df176883ab99bec80fed0830153201d6b304d6a38c0f5"
+    },
+    {
+      "path": "artifacts/repeat/heavy_bulky_delivery_reliability-0.4.3.tar.gz",
+      "size": 68897,
+      "sha256": "797cbbb7b1662812161d84bbf538d66a13d822f7d927860ecde3935b3f16c851"
+    }
+  ],
+  "file_manifest_source_fingerprint": "2841e37a3cff6806f9af17aa8ef7669be7443beda41cfbe930c74f0dfce41151",
+  "installation_command_linux": "python -m venv .venv && source .venv/bin/activate && python -m pip install --constraint constraints-verified.txt \".[full]\"",
+  "installation_command_windows": "py -3.11 -m venv .venv; .\\.venv\\Scripts\\Activate.ps1; python -m pip install --constraint constraints-verified.txt \".[full]\"",
+  "distribution_install_commands": {
+    "wheel_full": "python -m pip install --constraint constraints-verified.txt \"artifacts/dist/heavy_bulky_delivery_reliability-0.4.3-py3-none-any.whl[full]\"",
+    "sdist_full": "python -m pip install --constraint constraints-verified.txt \"artifacts/dist/heavy_bulky_delivery_reliability-0.4.3.tar.gz[full]\""
+  },
+  "sample_run": "heavy-bulky full-pipeline --config configs/smoke.yaml --output-dir outputs/smoke && heavy-bulky verify-output --output-dir outputs/smoke",
+  "supported_runtime_verified": [
+    "Linux Python 3.13 CPU"
+  ],
+  "supported_runtime_configured_not_executed": [
+    "Ubuntu GitHub Actions Python 3.11/3.13",
+    "Windows GitHub Actions Python 3.11",
+    "Dockerfile path",
+    "GPU optional path"
+  ],
+  "data_and_model_requirements": "Default synthetic CPU path requires no external data. M5-pattern validation accepts --m5-zip path. Amazon route and Chronos paths are optional."
+}
