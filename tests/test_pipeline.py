@@ -112,6 +112,7 @@ def test_cli_verify_output_accepts_valid_and_rejects_tampered(pipeline_run, tmp_
     assert invalid.returncode == 1
     assert json.loads(invalid.stdout)["valid"] is False
 
+
 def test_decision_value_separates_lowest_cost_candidate_from_selected_champion() -> None:
     from heavy_bulky.pipeline import _decision_value_summary
 
@@ -127,16 +128,8 @@ def test_decision_value_separates_lowest_cost_candidate_from_selected_champion()
         champion_name="greedy",
     )
 
-    assert (
-        decision_value["lowest_expected_cost_evaluated_candidate"]
-        == "deterministic"
-    )
+    assert decision_value["lowest_expected_cost_evaluated_candidate"] == "deterministic"
     assert decision_value["selected_champion_policy"] == "greedy"
     assert decision_value["selected_champion_expected_cost"] == 100.0
-    assert (
-        decision_value[
-            "risk_aware_regret_vs_lowest_expected_cost_evaluated_candidate"
-        ]
-        == 2.0
-    )
+    assert decision_value["risk_aware_regret_vs_lowest_expected_cost_evaluated_candidate"] == 2.0
     assert "does not override" in decision_value["note"]

@@ -442,8 +442,6 @@ def _execute_pipeline(cfg: dict, output: Path) -> dict:
         name: simulation_summary(simulation) for name, simulation in simulations.items()
     }
     greedy_cost = simulation_metrics["greedy"]["expected_cost"]
-    deterministic_cost = simulation_metrics["deterministic"]["expected_cost"]
-    risk_cost = simulation_metrics["risk_aware"]["expected_cost"]
 
     paired_comparisons = {
         "risk_aware_vs_greedy": paired_policy_comparison(
@@ -685,7 +683,6 @@ def _execute_pipeline(cfg: dict, output: Path) -> dict:
     return metrics
 
 
-
 def _decision_value_summary(
     simulation_metrics: dict[str, dict],
     champion_name: str,
@@ -710,17 +707,11 @@ def _decision_value_summary(
     deterministic_cost = expected_costs["deterministic"]
     risk_cost = expected_costs["risk_aware"]
     selected_champion_cost = expected_costs[champion_name]
-    label_informed_cost = float(
-        simulation_metrics["label_informed_proxy"]["expected_cost"]
-    )
+    label_informed_cost = float(simulation_metrics["label_informed_proxy"]["expected_cost"])
 
     return {
-        "relative_expected_cost_change_vs_greedy": (
-            risk_cost / max(greedy_cost, 1.0) - 1.0
-        ),
-        "deterministic_minus_risk_aware_expected_cost_delta": (
-            deterministic_cost - risk_cost
-        ),
+        "relative_expected_cost_change_vs_greedy": (risk_cost / max(greedy_cost, 1.0) - 1.0),
+        "deterministic_minus_risk_aware_expected_cost_delta": (deterministic_cost - risk_cost),
         "lowest_expected_cost_evaluated_candidate": lowest_candidate,
         "lowest_expected_cost_evaluated_candidate_expected_cost": (
             expected_costs[lowest_candidate]
@@ -731,9 +722,7 @@ def _decision_value_summary(
             0.0,
             risk_cost - expected_costs[lowest_candidate],
         ),
-        "label_informed_proxy_cost_delta_vs_risk_aware": (
-            label_informed_cost - risk_cost
-        ),
+        "label_informed_proxy_cost_delta_vs_risk_aware": (label_informed_cost - risk_cost),
         "note": (
             "Offline common-scenario comparisons. "
             "lowest_expected_cost_evaluated_candidate is descriptive across "
@@ -744,7 +733,6 @@ def _decision_value_summary(
             "or oracle-regret claim is made."
         ),
     }
-
 
 
 def _solver_promotion_quality(plan: PlanResult, cfg: dict) -> tuple[bool, dict[str, bool]]:

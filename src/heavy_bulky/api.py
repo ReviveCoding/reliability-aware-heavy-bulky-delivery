@@ -24,8 +24,6 @@ class PipelineRequest(BaseModel):
     mode: Literal["smoke", "full"] = "smoke"
 
 
-
-
 def _validate_windows_output_path_budget(
     destination,
     *,
@@ -42,11 +40,7 @@ def _validate_windows_output_path_budget(
         destination
         / (".smoke.staging-" + ("x" * 32))
         / "planning"
-        / (
-            ".label_informed_proxy_plan_meta.json."
-            + ("x" * 24)
-            + ".tmp"
-        )
+        / (".label_informed_proxy_plan_meta.json." + ("x" * 24) + ".tmp")
     )
 
     projected_length = len(str(projected_atomic_path))
@@ -62,6 +56,7 @@ def _validate_windows_output_path_budget(
                 f"conservative limit={conservative_limit}."
             ),
         )
+
 
 @app.get("/health")
 def health() -> dict[str, str]:
