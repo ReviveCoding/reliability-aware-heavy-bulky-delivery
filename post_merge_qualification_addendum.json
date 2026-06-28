@@ -1,0 +1,54 @@
+{
+    "schema_version":  "1.0",
+    "record_type":  "post_merge_qualification_addendum",
+    "applies_to_candidate":  "0.4.3-qualified-final-clean",
+    "applies_to_commit":  "e35f22ad3415fc0bbb83e764a896efff2507ea5f",
+    "observed_at_utc":  "2026-06-28T16:48:31Z",
+    "historical_evidence_policy":  "This addendum records post-merge hosted CI evidence without modifying historical release-bundle manifests, source fingerprints, artifact hashes, or the original local qualification record.",
+    "hosted_ci":  {
+                      "repository":  "ReviveCoding/reliability-aware-heavy-bulky-delivery",
+                      "workflow":  "ci",
+                      "run_id":  "28329072963",
+                      "url":  "https://github.com/ReviveCoding/reliability-aware-heavy-bulky-delivery/actions/runs/28329072963",
+                      "event":  "push",
+                      "status":  "completed",
+                      "conclusion":  "success",
+                      "head_sha":  "e35f22ad3415fc0bbb83e764a896efff2507ea5f"
+                  },
+    "reconciled_items":  [
+                             {
+                                 "item":  "GitHub-hosted Actions",
+                                 "historical_status":  "not_executed",
+                                 "post_merge_status":  "executed_passed",
+                                 "evidence":  "The GitHub Actions workflow completed successfully on the merged main commit."
+                             },
+                             {
+                                 "item":  "Windows runner",
+                                 "historical_status":  "not_executed",
+                                 "post_merge_status":  "executed_passed",
+                                 "evidence":  "The hosted windows-smoke job completed successfully on the merged main commit."
+                             },
+                             {
+                                 "item":  "Docker daemon",
+                                 "historical_status":  "not_available",
+                                 "post_merge_status":  "executed_passed",
+                                 "evidence":  "The hosted docker job completed successfully after image build and container smoke execution."
+                             }
+                         ],
+    "remaining_unexecuted_items":  [
+                                       {
+                                           "item":  "GPU/CUDA",
+                                           "status":  "not_executed"
+                                       },
+                                       {
+                                           "item":  "Chronos optional runtime path",
+                                           "status":  "not_executed"
+                                       }
+                                   ],
+    "qualification_verdict":  {
+                                  "historical_verdict":  "CONDITIONALLY QUALIFIED",
+                                  "post_merge_verdict":  "CONDITIONALLY QUALIFIED",
+                                  "rationale":  "Hosted CI, Windows smoke, and Docker container smoke strengthen core v0.4.3 execution evidence. GPU/CUDA and the optional Chronos runtime path remain unexecuted. This addendum does not authorize automatic model promotion or a production deployment claim."
+                              },
+    "chronos_lora_claim_boundary":  "Chronos LoRA evidence remains local synthetic/proxy benchmark evidence. The consumed frozen P28 window must not be reused for further tuning or automatic promotion."
+}
