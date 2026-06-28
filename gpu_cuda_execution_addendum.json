@@ -1,0 +1,64 @@
+{
+    "schema_version":  "1.0",
+    "record_type":  "post_release_local_gpu_cuda_execution_addendum",
+    "applies_to_repository":  "ReviveCoding/reliability-aware-heavy-bulky-delivery",
+    "applies_to_commit":  "9faaa5631159b3efa3d2250c222d6f9991e95dcd",
+    "applies_to_release_tag":  "v0.4.3-conditionally-qualified",
+    "created_at_utc":  "2026-06-28T21:41:59.1498132Z",
+    "historical_evidence_policy":  "This addendum records post-release local CUDA execution evidence without changing historical qualification manifests, release bundle hashes, or the existing prerelease tag.",
+    "gpu_environment":  {
+                            "device_name":  "NVIDIA GeForce RTX 4090 Laptop GPU",
+                            "torch_version":  "2.11.0+cu128",
+                            "torch_cuda_version":  "12.8",
+                            "chronos_forecasting_version":  "2.3.0"
+                        },
+    "advanced_service_cuda_execution":  {
+                                            "local_evidence_relative_path":  ".local-run/gpu-evidence/P40A-advanced-service-cuda-20260628T211256Z/gpu_advanced_service_execution_evidence.json",
+                                            "local_evidence_sha256":  "71e2ad38621351dcf7a4c9f4618af56956983ba0e5a251315050abd19ff429ce",
+                                            "requested_device":  "cuda",
+                                            "reported_device":  "cuda",
+                                            "result_status":  "hold",
+                                            "elapsed_seconds":  10.401153899991186,
+                                            "train_rows":  1592,
+                                            "validation_rows":  395,
+                                            "baseline_duration_mae":  9.8749246327542437,
+                                            "advanced_duration_mae":  10.283030087627942,
+                                            "baseline_failure_brier":  0.069995894088084987,
+                                            "advanced_failure_brier":  0.071078166365623474,
+                                            "interpretation":  "The CUDA challenger executed successfully but remained HOLD. The configured baseline-first promotion gate retained the classical baseline because the challenger did not satisfy the configured decision-quality guardrails."
+                                        },
+    "chronos2_cuda_runtime_execution":  {
+                                            "local_evidence_relative_path":  ".local-run/gpu-evidence/P40B-chronos2-cuda-20260628T211733Z/chronos2_cuda_runtime_evidence.json",
+                                            "local_evidence_sha256":  "03cb52e3132405d883f62b3a855b99e92489cd6193554b44af07dcfdefe14c15",
+                                            "requested_device":  "cuda",
+                                            "cuda_available":  true,
+                                            "prediction_rows":  28,
+                                            "series_count":  2,
+                                            "rows_per_series":  14,
+                                            "forecast_columns":  [
+                                                                     "predictions",
+                                                                     "0.1",
+                                                                     "0.5",
+                                                                     "0.9"
+                                                                 ],
+                                            "auxiliary_columns":  [
+                                                                      "target_name"
+                                                                  ],
+                                            "quantile_ordering_verified":  true,
+                                            "interpretation":  "The optional Chronos-2 adapter completed explicit CUDA inference on isolated synthetic probe inputs. The target_name column is an auxiliary identifier column and was excluded from numeric forecast field validation."
+                                        },
+    "qualification_status":  {
+                                 "historical_verdict":  "CONDITIONALLY QUALIFIED",
+                                 "post_gpu_execution_verdict":  "CONDITIONALLY QUALIFIED",
+                                 "rationale":  "Local CUDA execution is now evidenced for the advanced service challenger and the optional Chronos-2 adapter. These runs do not replace the frozen core qualification record, establish production performance, or authorize automatic promotion."
+                             },
+    "remaining_boundaries":  [
+                                 "No production AMXL data claim.",
+                                 "No production deployment claim.",
+                                 "No causal savings claim.",
+                                 "No Chronos model-superiority claim.",
+                                 "No automatic model-promotion authorization.",
+                                 "No reuse of the frozen P28 evaluation window for tuning.",
+                                 "Existing v0.4.3-conditionally-qualified prerelease remains immutable."
+                             ]
+}
