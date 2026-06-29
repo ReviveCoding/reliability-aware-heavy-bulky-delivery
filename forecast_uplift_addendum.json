@@ -1,0 +1,95 @@
+{
+    "schema_version":  "1.0",
+    "record_type":  "post_release_frozen_forecast_uplift_addendum",
+    "applies_to_repository":  "ReviveCoding/reliability-aware-heavy-bulky-delivery",
+    "applies_to_commit":  "16b1d54c639b6b27d05b5a11edf53d1b09d564df",
+    "applies_to_release_tag":  "v0.4.3-conditionally-qualified-cuda.1",
+    "created_at_utc":  "2026-06-29T00:51:28.5475408Z",
+    "historical_evidence_policy":  "This addendum records a fixed-config recovery of existing forecast baseline-comparison metrics without changing historical qualification manifests, prior prerelease tags, or prior GPU/CUDA evidence.",
+    "methodology":  {
+                        "recovery_mode":  "fixed_config_no_tuning",
+                        "config_relative_path":  "configs/full.yaml",
+                        "config_sha256":  "d4c745f9e4a6fc73096c3473e8c46acf5d85c009c4f1f7e8c7aa757e6f247db5",
+                        "backtest_protocol":  "fixed_model_rolling_one_step",
+                        "series_count":  9,
+                        "candidates":  [
+                                           "seasonal_naive",
+                                           "rolling_mean",
+                                           "lightgbm_quantile"
+                                       ],
+                        "interpretation":  "The recovery re-ran the existing full configuration with isolated output and did not modify hyperparameters, candidate models, seeds, validation horizon, or promotion thresholds."
+                    },
+    "local_recovery_evidence":  {
+                                    "relative_path":  ".local-run/performance-evidence/P43-0-frozen-forecast-recovery-20260629T003701Z/forecast_baseline_comparison_recovery.json",
+                                    "sha256":  "8cdcc071f3a0bbeb88ff63e694ac6b3e96a842f9216b4751e728fc9f0604be8b",
+                                    "model_comparison_relative_path":  ".local-run/performance-evidence/P43-0-frozen-forecast-recovery-20260629T003701Z/forecast/model_comparison.csv",
+                                    "model_comparison_sha256":  "0258a2aa1125cf3f8c0c8913a1a8ed8bb0fc61f3b22f75a60607e04c92175f25",
+                                    "summary_relative_path":  ".local-run/performance-evidence/P43-0-frozen-forecast-recovery-20260629T003701Z/metrics/summary.json",
+                                    "summary_sha256":  "2bb867fc63e79b76c602e2186a5b6fe6377c2021169226723cd4485049b543b6"
+                                },
+    "model_comparison":  {
+                             "seasonal_naive":  {
+                                                    "wape":  0.26511134676564158,
+                                                    "mae":  5.9523809523809526,
+                                                    "interval_coverage_gap":  0.14920634920634923,
+                                                    "capacity_regret_proxy":  12.269841269841271,
+                                                    "worst_series_wape":  0.42023346303501946,
+                                                    "selection_score":  0.43120238499675762,
+                                                    "promoted":  false
+                                                },
+                             "rolling_mean":  {
+                                                  "wape":  0.23266045548654243,
+                                                  "mae":  5.2237811791383217,
+                                                  "capacity_regret_proxy":  11.853174603174603,
+                                                  "worst_series_wape":  0.292340521114106,
+                                                  "selection_score":  0.36961875138351757,
+                                                  "promoted":  false
+                                              },
+                             "lightgbm_quantile":  {
+                                                       "wape":  0.19688235966930098,
+                                                       "mae":  4.4204777420988295,
+                                                       "interval_coverage_gap":  0.030158730158730163,
+                                                       "capacity_regret_proxy":  10.123015873015873,
+                                                       "worst_series_wape":  0.25762382982926052,
+                                                       "selection_score":  0.31551751941473227,
+                                                       "promoted":  true
+                                                   }
+                         },
+    "uplift_vs_seasonal_naive":  {
+                                     "wape_reduction_pct":  25.735973932739668,
+                                     "mae_reduction_pct":  25.735973932739665,
+                                     "worst_series_wape_reduction_pct":  38.695070123963006,
+                                     "interval_coverage_gap_reduction_pct":  79.7872340425532,
+                                     "capacity_regret_proxy_reduction_pct":  17.496765847347998,
+                                     "selection_score_reduction_pct":  26.828438247830011
+                                 },
+    "uplift_vs_rolling_mean":  {
+                                   "wape_reduction_pct":  15.377815599312678,
+                                   "mae_reduction_pct":  15.377815599312672,
+                                   "worst_series_wape_reduction_pct":  11.875429089522257,
+                                   "capacity_regret_proxy_reduction_pct":  14.596585202544352,
+                                   "selection_score_reduction_pct":  14.637036613072071
+                               },
+    "promotion_policy":  {
+                             "baseline_model":  "seasonal_naive",
+                             "champion_model":  "lightgbm_quantile",
+                             "composite_gate_passed":  true,
+                             "worst_series_gate_passed":  true,
+                             "interpretation":  "The LightGBM quantile candidate was selected because it improved the composite selection score and satisfied the worst-series guardrail under the fixed rolling one-step protocol."
+                         },
+    "qualification_status":  {
+                                 "historical_verdict":  "CONDITIONALLY QUALIFIED",
+                                 "post_forecast_uplift_verdict":  "CONDITIONALLY QUALIFIED",
+                                 "rationale":  "The recovered forecast uplift strengthens benchmark evidence for the forecasting layer. It does not establish production AMXL performance, causal savings, general state-of-the-art superiority, or authorization for automatic model promotion outside the documented synthetic benchmark."
+                             },
+    "remaining_boundaries":  [
+                                 "Semi-synthetic benchmark evidence only.",
+                                 "Fixed rolling one-step backtest only.",
+                                 "No production AMXL data claim.",
+                                 "No production deployment claim.",
+                                 "No causal savings claim.",
+                                 "No general forecasting state-of-the-art claim.",
+                                 "No automatic promotion authorization outside the documented benchmark.",
+                                 "No post-hoc hyperparameter tuning occurred in this recovery."
+                             ]
+}
