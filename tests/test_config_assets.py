@@ -48,9 +48,9 @@ def test_version_consistency():
 
 def test_release_automation_assets_are_current_and_cross_platform():
     workflow = (ROOT / ".github/workflows/ci.yml").read_text(encoding="utf-8")
-    assert "actions/checkout@v6" in workflow
-    assert "actions/setup-python@v6" in workflow
-    assert "actions/upload-artifact@v4" in workflow
+    assert "actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803" in workflow
+    assert "actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1" in workflow
+    assert "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02" in workflow
     assert "windows-latest" in workflow
     assert "timeout-minutes:" in workflow
     assert "if-no-files-found: error" in workflow
